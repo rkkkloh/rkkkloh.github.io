@@ -9,7 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
     
     <style>
-        /* --- MATEAS 精品美學設計變數 --- */
         :root {
             --mateas-bg: #f9f8f6;       
             --mateas-navy: #192a46;     
@@ -19,7 +18,6 @@
             --mateas-border: #e6e4e0;   
         }
 
-        /* --- 全域洗鍊排版 --- */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -34,9 +32,6 @@
             overflow-x: hidden;
         }
 
-        /* -----------------------------------------
-           ✨ 新增：高級感開場動畫（Preloader）樣式
-        ----------------------------------------- */
         #preloader {
             position: fixed;
             top: 0;
@@ -49,7 +44,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            transition: transform 1s cubic-bezier(0.85, 0, 0.15, 1); /* 高級感的絲綢滑動 */
+            transition: transform 1s cubic-bezier(0.85, 0, 0.15, 1);
         }
         .preload-logo {
             font-family: 'Noto Serif TC', serif;
@@ -68,14 +63,10 @@
             margin-top: 15px;
             animation: lineExpand 1.2s ease forwards 0.8s;
         }
-        /* 網頁加載完後的消失動畫類別 */
         .loaded #preloader {
             transform: translateY(-100%);
         }
 
-        /* -----------------------------------------
-           ✨ 新增：動態環境背景（會隨著網頁緩慢流動）
-        ----------------------------------------- */
         .animated-bg {
             position: fixed;
             top: 0;
@@ -85,17 +76,15 @@
             background: radial-gradient(circle at 10% 20%, rgba(241, 233, 219, 0.6) 0%, rgba(249, 248, 246, 1) 90%);
             z-index: 0;
             pointer-events: none;
-            animation: bgBreath 20s ease-in-out infinite alternate; /* 背景呼吸動態 */
+            animation: bgBreath 20s ease-in-out infinite alternate;
         }
 
-        /* --- 頂級品牌氛圍容器 --- */
         .brand-container {
             position: relative;
             z-index: 1;
             max-width: 1100px;
             margin: 0 auto;
             padding: 80px 24px;
-            /* 預設隱藏，等開場動畫結束後才優雅浮現 */
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 1.2s ease 0.6s, transform 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.6s;
@@ -105,7 +94,6 @@
             transform: translateY(0);
         }
 
-        /* --- MATEAS 風格精品頁首 --- */
         header {
             text-align: center;
             margin-bottom: 60px;
@@ -139,7 +127,6 @@
             font-weight: 300;
         }
 
-        /* --- 沉浸式滿版劇場（影片區塊） --- */
         .hero-theater {
             background-color: #ffffff;
             border: 1px solid var(--mateas-border);
@@ -163,7 +150,6 @@
             border: 0;
         }
 
-        /* --- 雙欄式雜誌級版面配置 --- */
         .layout-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -177,7 +163,6 @@
             }
         }
 
-        /* --- 左側：文藝敘述故事牆 --- */
         .story-section h2 {
             font-family: 'Noto Serif TC', serif;
             font-size: 1.8rem;
@@ -198,7 +183,6 @@
             background: linear-gradient(transparent 70%, #f1e9db 70%); 
         }
 
-        /* --- 右側：極簡主義 QR Code 區塊 --- */
         .brand-qrcode-card {
             background-color: #ffffff;
             border: 1px solid var(--mateas-border);
@@ -232,7 +216,6 @@
             letter-spacing: 1px;
         }
 
-        /* --- 奢華極簡按鈕群 --- */
         .action-flex-bar {
             display: flex;
             flex-direction: column;
@@ -280,7 +263,6 @@
             box-shadow: 0 8px 20px rgba(25, 42, 70, 0.1);
         }
 
-        /* --- 品牌頁尾 --- */
         footer {
             text-align: center;
             margin-top: 100px;
@@ -292,9 +274,6 @@
             letter-spacing: 2px;
         }
 
-        /* -----------------------------------------
-           🔮 CSS 物理動畫核心庫
-        ----------------------------------------- */
         @keyframes fadeUpReveal {
             to {
                 opacity: 1;
@@ -313,7 +292,7 @@
             }
             100% {
                 background-position: 100% 50%;
-                transform: scale(1.03); /* 微幅緩慢位移與放大，製造活體感 */
+                transform: scale(1.03);
             }
         }
     </style>
@@ -345,6 +324,11 @@
         <div class="layout-grid">
             <article class="story-section">
                 <h2>水交社眷村空間分布</h2>
+                
+                <div style="margin-bottom: 24px; border-radius: 4px; overflow: hidden; border: 1px solid var(--mateas-border); box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
+                    <img src="map.png" alt="水交社園區導覽地圖" style="width: 100%; height: auto; display: block; transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+                </div>
+
                 <p>
                     本園區以豐富的眷村巷弄為地質網絡。右上角由<span class="highlight">文學沙龍館、眷村主題館及展演館</span>共同構成核心的日式古蹟宿舍群；右下角則緊鄰飛機廣場，以遊客中心為中心，串聯起 <span class="highlight">AIR台南館、水交社歷史館與飛行親子館</span>等多棟黑瓦展館；左側則鄰近市定古蹟<span class="highlight">「桂子山」</span>高地，共同勾勒出這座飛機眷村當下完整的人文與歷史地景。
                 </p>
@@ -374,15 +358,12 @@
     </div>
 
     <script>
-        // 1. 當網頁所有資源載入完畢，光速解除開場畫面並讓主元件滑入
         window.addEventListener('load', () => {
-            // 刻意延遲 400 毫秒，讓讀者能完整欣賞精美的品牌開場文字
             setTimeout(() => {
                 document.body.classList.add('loaded');
             }, 400);
         });
 
-        // 2. 自動取得網址並生成高畫質 QR 碼
         const storymapsLink = document.getElementById('target-storymaps-url').href;
         const qrcodeWrapper = document.getElementById('brand-qrcode');
         const qrImageUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(storymapsLink)}&ecc=M&margin=0`;
