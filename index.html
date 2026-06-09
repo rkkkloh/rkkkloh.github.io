@@ -150,20 +150,8 @@
             border: 0;
         }
 
-        .layout-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 50px;
-            margin-bottom: 60px;
-        }
-        @media (min-width: 768px) {
-            .layout-grid {
-                grid-template-columns: 1.2fr 0.8fr; 
-                align-items: start;
-            }
-        }
-
-        .story-section h2 {
+        /* --- 修正：全新的排版格線系統 --- */
+        .section-title {
             font-family: 'Noto Serif TC', serif;
             font-size: 1.8rem;
             color: var(--mateas-navy);
@@ -171,25 +159,50 @@
             font-weight: 600;
             letter-spacing: 2px;
         }
-        .story-section p {
-            font-size: 1.05rem;
-            color: #4a4a4a;
-            text-align: justify;
-            letter-spacing: 0.5px;
+
+        .media-align-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            margin-bottom: 30px;
         }
-        .highlight {
-            color: var(--mateas-navy);
-            font-weight: 700;
-            background: linear-gradient(transparent 70%, #f1e9db 70%); 
+        @media (min-width: 768px) {
+            .media-align-row {
+                grid-template-columns: 1.2fr 0.8fr; 
+                align-items: stretch;
+            }
+        }
+
+        .map-box {
+            border-radius: 4px; 
+            overflow: hidden; 
+            border: 1px solid var(--mateas-border); 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            background-color: #ffffff;
+            display: flex;
+            align-items: center;
+        }
+        .map-box img {
+            width: 100%; 
+            height: auto; 
+            display: block; 
+            transition: transform 0.5s ease;
+        }
+        .map-box img:hover {
+            transform: scale(1.02);
         }
 
         .brand-qrcode-card {
             background-color: #ffffff;
             border: 1px solid var(--mateas-border);
             border-radius: 4px;
-            padding: 40px 20px;
+            padding: 20px;
             text-align: center;
             box-shadow: 0 10px 30px rgba(25, 42, 70, 0.02);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
         .brand-qrcode-card h3 {
             font-family: 'Noto Serif TC', serif;
@@ -214,6 +227,20 @@
             font-size: 0.85rem;
             color: var(--mateas-muted);
             letter-spacing: 1px;
+        }
+
+        /* 獨立出來的底層故事文字區塊 */
+        .paragraph-text {
+            font-size: 1.05rem;
+            color: #4a4a4a;
+            text-align: justify;
+            letter-spacing: 0.5px;
+            margin-bottom: 60px;
+        }
+        .highlight {
+            color: var(--mateas-navy);
+            font-weight: 700;
+            background: linear-gradient(transparent 70%, #f1e9db 70%); 
         }
 
         .action-flex-bar {
@@ -270,7 +297,7 @@
             border-top: 1px solid var(--mateas-border);
             font-family: 'Playfair Display', serif;
             font-size: 0.8rem;
-            color: var(--mateas-muted);
+            color: var(--text-muted);
             letter-spacing: 2px;
         }
 
@@ -321,18 +348,12 @@
             </div>
         </section>
 
-        <div class="layout-grid">
-            <article class="story-section">
-                <h2>水交社眷村空間分布</h2>
-                
-                <div style="margin-bottom: 24px; border-radius: 4px; overflow: hidden; border: 1px solid var(--mateas-border); box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
-                    <img src="map.png" alt="水交社園區導覽地圖" style="width: 100%; height: auto; display: block; transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
-                </div>
+        <h2 class="section-title">水交社眷村空間分布</h2>
 
-                <p>
-                    本園區以豐富的眷村巷弄為地質網絡。右上角由<span class="highlight">文學沙龍館、眷村主題館及展演館</span>共同構成核心的日式古蹟宿舍群；右下角則緊鄰飛機廣場，以遊客中心為中心，串聯起 <span class="highlight">AIR台南館、水交社歷史館與飛行親子館</span>等多棟黑瓦展館；左側則鄰近市定古蹟<span class="highlight">「桂子山」</span>高地，共同勾勒出這座飛機眷村當下完整的人文與歷史地景。
-                </p>
-            </article>
+        <div class="media-align-row">
+            <div class="map-box">
+                <img src="map.png" alt="水交社園區導覽地圖">
+            </div>
 
             <aside class="brand-qrcode-card">
                 <h3>DIGITAL TRAVEL</h3>
@@ -341,6 +362,10 @@
                 <div class="qrcode-info">使用行動裝置掃描探索完整故事</div>
             </aside>
         </div>
+
+        <p class="paragraph-text">
+            本園區以豐富的眷村巷弄為地質網絡。右上角由<span class="highlight">文學沙龍館、眷村主題館及展演館</span>共同構成核心的日式古蹟宿舍群；右下角則緊鄰飛機廣場，以遊客中心為中心，串聯起 <span class="highlight">AIR台南館、水交社歷史館與飛行親子館</span>等多棟黑瓦展館；左側則鄰近市定古蹟<span class="highlight">「桂子山」</span>高地，共同勾勒出這座飛機眷村當下完整的人文與歷史地景。
+        </p>
 
         <div class="action-flex-bar">
             <a href="https://arcg.is/1SWy951" id="target-storymaps-url" target="_blank" class="luxury-btn btn-navy-solid">
