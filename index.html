@@ -7,7 +7,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Playfair+Display:ital,wght=0,400;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
@@ -17,7 +16,6 @@
             --mateas-text: #3e3e3e;     
             --mateas-muted: #8c8c8c;    
             --mateas-border: #e6e4e0;   
-            --footer-bg: #1c2d27;       
         }
 
         * {
@@ -36,7 +34,10 @@
 
         #preloader {
             position: fixed;
-            top: 0; left: 0; width: 100%; height: 100vh;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
             background-color: var(--mateas-navy);
             z-index: 9999;
             display: flex;
@@ -56,7 +57,8 @@
             animation: fadeUpReveal 1.5s ease forwards 0.3s;
         }
         .preload-line {
-            width: 0; height: 1px;
+            width: 0;
+            height: 1px;
             background-color: var(--mateas-gold);
             margin-top: 20px;
             animation: lineExpand 1.2s ease forwards 0.8s;
@@ -67,7 +69,10 @@
 
         .animated-bg {
             position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background: radial-gradient(circle at 10% 20%, rgba(241, 233, 219, 0.5) 0%, rgba(249, 248, 246, 1) 90%);
             z-index: 0;
             pointer-events: none;
@@ -79,7 +84,7 @@
             z-index: 1;
             max-width: 1100px;
             margin: 0 auto;
-            padding: 90px 24px 0 24px;
+            padding: 90px 24px;
             opacity: 0;
             transform: translateY(25px);
             transition: opacity 1.4s ease 0.5s, transform 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.5s;
@@ -110,7 +115,8 @@
             margin-bottom: 18px;
         }
         .brand-line {
-            width: 50px; height: 1px;
+            width: 50px;
+            height: 1px;
             background-color: var(--mateas-gold);
             margin: 0 auto 22px auto;
         }
@@ -132,11 +138,16 @@
         .video-ratio-box {
             position: relative;
             padding-bottom: 56.25%; 
-            height: 0; overflow: hidden;
+            height: 0;
+            overflow: hidden;
         }
         .video-ratio-box iframe {
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%; border: 0;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
         }
 
         .section-title {
@@ -152,7 +163,10 @@
         .section-title::after {
             content: '';
             position: absolute;
-            bottom: -6px; left: 0; width: 30px; height: 1.5px;
+            bottom: -6px;
+            left: 0;
+            width: 30px;
+            height: 1.5px;
             background-color: var(--mateas-gold);
         }
 
@@ -179,7 +193,9 @@
             align-items: center;
         }
         .map-box img {
-            width: 100%; height: auto; display: block; 
+            width: 100%; 
+            height: auto; 
+            display: block; 
             transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .map-box img:hover {
@@ -212,13 +228,19 @@
             padding: 12px;
             display: inline-block;
             margin-bottom: 20px;
+            transition: box-shadow 0.3s ease;
+        }
+        .qrcode-image-wrapper:hover {
+            box-shadow: 0 8px 20px rgba(25, 42, 70, 0.06);
         }
         .qrcode-image-wrapper img {
-            display: block; width: 155px; height: 155px;
+            display: block;
+            width: 155px;
+            height: 155px;
         }
         .qrcode-info {
             font-size: 0.82rem;
-            color: var(--text-muted);
+            color: var(--mateas-muted);
             letter-spacing: 1.5px;
         }
 
@@ -238,7 +260,7 @@
             padding: 0 2px;
         }
 
-        .slider-theater-section {
+        .portfolio-section {
             margin-bottom: 80px;
             background-color: #ffffff;
             border: 1px solid var(--mateas-border);
@@ -247,104 +269,102 @@
             box-shadow: 0 10px 30px rgba(25, 42, 70, 0.02);
         }
         
-        .slider-layout {
+        .portfolio-filter-bar {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        .filter-btn {
+            background: transparent;
+            border: 1px solid var(--mateas-border);
+            color: var(--mateas-muted);
+            padding: 10px 24px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            cursor: pointer;
+            border-radius: 2px;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .filter-btn.active, .filter-btn:hover {
+            background-color: var(--mateas-navy);
+            border-color: var(--mateas-navy);
+            color: #ffffff;
+            transform: translateY(-1px);
+        }
+
+        .portfolio-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 40px;
+            gap: 30px;
         }
-        @media (min-width: 768px) {
-            .slider-layout {
-                grid-template-columns: 0.7fr 1.3fr;
-                align-items: center;
-            }
+        @media (min-width: 640px) {
+            .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (min-width: 960px) {
+            .portfolio-grid { grid-template-columns: repeat(3, 1fr); }
         }
 
-        .slider-nav-list {
+        .case-card {
+            background-color: var(--mateas-bg);
+            border: 1px solid var(--mateas-border);
+            border-radius: 3px;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
             display: flex;
             flex-direction: column;
-            gap: 15px;
         }
-        .slider-nav-item {
-            padding: 20px;
-            border-left: 2px solid var(--mateas-border);
-            cursor: pointer;
-            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .slider-nav-item.active {
-            border-left-color: var(--mateas-gold);
-            background-color: rgba(195, 164, 115, 0.04);
-        }
-        .slider-nav-item .num {
-            font-family: 'Playfair Display', serif;
-            font-size: 0.8rem;
-            color: var(--mateas-gold);
-            display: block;
-            margin-bottom: 4px;
-            letter-spacing: 1px;
-        }
-        .slider-nav-item h4 {
-            font-family: 'Noto Serif TC', serif;
-            font-size: 1.2rem;
-            color: var(--mateas-navy);
-            font-weight: 600;
-            transition: color 0.3s;
-        }
-        .slider-nav-item.active h4 {
-            color: var(--mateas-gold);
-        }
-
-        .slider-display-window {
+        .case-card-img-wrapper {
             position: relative;
             width: 100%;
-            padding-bottom: 65%;
-            border-radius: 4px;
+            padding-bottom: 68%;
             overflow: hidden;
-            box-shadow: 0 15px 35px rgba(25, 42, 70, 0.08);
-            background-color: #121826;
+            background-color: var(--mateas-navy);
         }
-        .slider-slide {
+        .case-card-img-wrapper img {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            opacity: 0;
-            transform: scale(1.04);
-            transition: opacity 0.8s ease, transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-            z-index: 1;
-        }
-        .slider-slide.active {
-            opacity: 1;
-            transform: scale(1);
-            z-index: 2;
-        }
-        .slide-bg-img {
-            width: 100%; height: 100%;
             object-fit: cover;
+            transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .slide-bg-gradient-1 { background: linear-gradient(135deg, #192a46 0%, #c3a473 100%); width:100%; height:100%; }
-        .slide-bg-gradient-2 { background: linear-gradient(135deg, #1c2d27 0%, #2c3e50 100%); width:100%; height:100%; }
-        .slide-bg-gradient-3 { background: linear-gradient(135deg, #444444 0%, #192a46 100%); width:100%; height:100%; }
-
-        .slide-overlay-content {
-            position: absolute;
-            bottom: 0; left: 0; width: 100%;
-            padding: 40px;
-            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%);
-            color: #ffffff;
+        .case-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--mateas-gold);
+            box-shadow: 0 15px 35px rgba(25, 42, 70, 0.08);
+        }
+        .case-card:hover .case-card-img-wrapper img {
+            transform: scale(1.06) rotate(0.5deg);
+            opacity: 0.85;
+        }
+        .case-card-body {
+            padding: 24px;
+            flex-grow: 1;
             display: flex;
             flex-direction: column;
-            justify-content: flex-end;
         }
-        .slide-overlay-content p {
-            font-size: 0.95rem;
-            letter-spacing: 1px;
-            max-width: 550px;
+        .case-tag {
+            font-family: 'Playfair Display', serif;
+            font-size: 0.75rem;
+            color: var(--mateas-gold);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        .case-card-body h4 {
+            font-family: 'Noto Serif TC', serif;
+            font-size: 1.15rem;
+            color: var(--mateas-navy);
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+        .case-card-body p {
+            font-size: 0.88rem;
+            color: #666666;
             line-height: 1.6;
-            opacity: 0;
-            transform: translateY(15px);
-            transition: all 0.6s ease 0.3s;
-        }
-        .slider-slide.active .slide-overlay-content p {
-            opacity: 1;
-            transform: translateY(0);
+            text-align: justify;
         }
 
         .action-flex-bar {
@@ -353,126 +373,56 @@
             gap: 20px;
             border-top: 1px solid var(--mateas-border);
             padding-top: 50px;
-            margin-bottom: 80px;
         }
         @media (min-width: 640px) {
-            .action-flex-bar { flex-direction: row; }
+            .action-flex-bar {
+                flex-direction: row;
+            }
         }
         .luxury-btn {
-            flex: 1; text-align: center; padding: 20px 32px;
-            font-size: 0.95rem; font-weight: 600; letter-spacing: 3px;
-            text-decoration: none; text-transform: uppercase; border-radius: 2px;
+            flex: 1;
+            text-align: center;
+            padding: 20px 32px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-decoration: none;
+            text-transform: uppercase;
+            border-radius: 2px;
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .btn-navy-solid {
-            background-color: var(--mateas-navy); color: #ffffff; border: 1px solid var(--mateas-navy);
+            background-color: var(--mateas-navy);
+            color: #ffffff;
+            border: 1px solid var(--mateas-navy);
         }
         .btn-navy-solid:hover {
-            background-color: #ffffff; color: var(--mateas-navy);
-            transform: translateY(-2px); box-shadow: 0 10px 25px rgba(25, 42, 70, 0.12);
+            background-color: #ffffff;
+            color: var(--mateas-navy);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(25, 42, 70, 0.12);
         }
         .btn-outline-gray {
-            background-color: transparent; color: var(--mateas-navy); border: 1px solid var(--mateas-navy);
+            background-color: transparent;
+            color: var(--mateas-navy);
+            border: 1px solid var(--mateas-navy);
         }
         .btn-outline-gray:hover {
-            background-color: var(--mateas-navy); color: #ffffff;
-            transform: translateY(-2px); box-shadow: 0 10px 25px rgba(25, 42, 70, 0.1);
+            background-color: var(--mateas-navy);
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(25, 42, 70, 0.1);
         }
 
-        .premium-footer {
-            background-color: var(--footer-bg);
-            color: #ffffff;
-            padding: 60px 40px;
-            margin-top: 60px;
-            font-size: 0.9rem;
-            letter-spacing: 1px;
-            border-top: 1px solid rgba(255,255,255,0.05);
-        }
-        .footer-inner-grid {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 40px;
-            align-items: center;
-        }
-        @media (min-width: 768px) {
-            .footer-inner-grid {
-                grid-template-columns: 1.2fr 1.2fr 1.2fr 1.4fr 0.5fr;
-            }
-        }
-        .footer-logo-block {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        .footer-logo-block h2 {
-            font-family: 'Noto Serif TC', serif;
-            font-size: 1.4rem;
-            letter-spacing: 4px;
-            font-weight: 500;
-            color: #ffffff;
-            border-left: 1px solid rgba(255,255,255,0.3);
-            padding-left: 20px;
-            line-height: 1.4;
-        }
-        .footer-logo-block span {
+        footer {
+            text-align: center;
+            margin-top: 120px;
+            padding-top: 35px;
+            border-top: 1px solid var(--mateas-border);
             font-family: 'Playfair Display', serif;
-            font-size: 0.75rem;
-            color: var(--mateas-gold);
+            font-size: 0.8rem;
+            color: var(--mateas-muted);
             letter-spacing: 2px;
-            padding-left: 20px;
-            margin-top: 4px;
-        }
-        .footer-info-col h5 {
-            font-size: 0.85rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: #ffffff;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: 600;
-        }
-        .footer-info-col h5 i {
-            color: var(--mateas-gold);
-            font-size: 0.9rem;
-        }
-        .footer-info-col p {
-            color: rgba(255,255,255,0.6);
-            line-height: 1.6;
-            font-size: 0.85rem;
-        }
-        .footer-social-icons {
-            display: flex;
-            flex-direction: row;
-            gap: 20px;
-            justify-content: flex-start;
-        }
-        @media (min-width: 768px) {
-            .footer-social-icons {
-                flex-direction: column;
-                align-items: flex-end;
-            }
-        }
-        .social-link-btn {
-            color: #ffffff;
-            font-size: 1.2rem;
-            transition: color 0.3s;
-            text-decoration: none;
-        }
-        .social-link-btn:hover {
-            color: var(--mateas-gold);
-        }
-        .footer-copyright-bar {
-            max-width: 1100px;
-            margin: 40px auto 0 auto;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            font-size: 0.75rem;
-            color: rgba(255,255,255,0.3);
-            text-align: left;
         }
 
         @keyframes fadeUpReveal {
@@ -527,53 +477,77 @@
         </div>
 
         <p class="paragraph-text">
-            本園區以豐富的眷村巷弄為地質網絡。右上角由<span class="highlight">文學沙龍館、眷村主題館及展演館</span>共同構成核心的日式古蹟宿舍群；右下角則緊鄰飛機廣場，以遊客中心為中心，串聯起 <span class="highlight">AIR台南館、水交社歷史館與飛行親子館</span>等多棟黑瓦展館；left側則鄰近市定古蹟<span class="highlight">「桂子山」</span>高地，共同勾勒出這座飛機眷村當下完整的人文與歷史地景。
+            本園區以豐富的眷村巷弄為地質網絡。右上角由<span class="highlight">文學沙龍館、眷村主題館及展演館</span>共同構成核心的日式古蹟宿舍群；右下角則緊鄰飛機廣場，以遊客中心為中心，串聯起 <span class="highlight">AIR台南館、水交社歷史館與飛行親子館</span>等多棟黑瓦展館；左側則鄰近市定古蹟<span class="highlight">「桂子山」</span>高地，共同勾勒出這座飛機眷村當下完整的人文與歷史地景。
         </p>
 
 
-        <section class="slider-theater-section">
-            <h2 class="section-title" style="margin-bottom: 40px;">核心展館空間美學</h2>
+        <section class="portfolio-section">
+            <h2 class="section-title" style="margin-bottom: 15px;">園區核心展館群</h2>
+            <p style="font-size: 0.95rem; color: var(--mateas-muted); margin-bottom: 35px; letter-spacing: 1px;">點擊下方分類，探索愛貝斯風格的動態展館格線：</p>
             
-            <div class="slider-layout">
-                <div class="slider-nav-list">
-                    <div class="slider-nav-item active" onclick="switchSlide(0)">
-                        <span class="num">01</span>
-                        <h4>日式古蹟宿舍群</h4>
+            <div class="portfolio-filter-bar">
+                <button class="filter-btn active" onclick="filterCases('all')">全部展館</button>
+                <button class="filter-btn" onclick="filterCases('japanese')">日式古蹟宿舍群</button>
+                <button class="filter-btn" onclick="filterCases('modern')">當代黑瓦主題館</button>
+            </div>
+
+            <div class="portfolio-grid" id="portfolio-container">
+                
+                <div class="case-card" data-cat="japanese">
+                    <div class="case-card-img-wrapper">
+                        <div style="width:100%; height:100%; background: linear-gradient(135deg, #2c3e50, #c3a473); opacity: 0.4;"></div>
                     </div>
-                    <div class="slider-nav-item" onclick="switchSlide(1)">
-                        <span class="num">02</span>
-                        <h4>當代黑瓦主題館</h4>
-                    </div>
-                    <div class="slider-nav-item" onclick="switchSlide(2)">
-                        <span class="num">03</span>
-                        <h4>桂子山人文高地</h4>
+                    <div class="case-card-body">
+                        <div class="case-tag">JAPANESE DORM</div>
+                        <h4>文學沙龍館</h4>
+                        <p>揉合日式傳統木造結構與現代文學氣息的優雅空間，透過在地作家的文字重新喚醒水交社的記憶網絡。</p>
                     </div>
                 </div>
 
-                <div class="slider-display-window">
-                    
-                    <div class="slider-slide active">
-                        <div class="slide-bg-gradient-1"></div>
-                        <div class="slide-overlay-content">
-                            <p>由文學沙龍館、眷村主題館及展演館共同構成。極具日本傳統和風木構造美學，黑瓦與檜木香交織出大時代下空軍將官的日常生活聚落縮影。</p>
-                        </div>
+                <div class="case-card" data-cat="japanese">
+                    <div class="case-card-img-wrapper">
+                        <div style="width:100%; height:100%; background: linear-gradient(135deg, #192a46, #c3a473); opacity: 0.4;"></div>
                     </div>
-
-                    <div class="slider-slide">
-                        <div class="slide-bg-gradient-2"></div>
-                        <div class="slide-overlay-content">
-                            <p>包含 AIR台南館、水交社歷史館與飛行親子館。沉穩的黑瓦建築群串聯起雷虎小組的軍事飛行地景，結合多媒體科技展示台南最完整的空軍文化。</p>
-                        </div>
+                    <div class="case-card-body">
+                        <div class="case-tag">THEME EXHIBITION</div>
+                        <h4>眷村主題館</h4>
+                        <p>深度封存大時代下雷虎小組與居民的日常縮影，將皮箱、軍服、老照片轉化為空間實體敘事。</p>
                     </div>
-
-                    <div class="slider-slide">
-                        <div class="slide-bg-gradient-3"></div>
-                        <div class="slide-overlay-content">
-                            <p>位於園區左側的市定古蹟「桂子山」，是府城古老的地形地標。承載了無數眷村世代的記憶，是勾勒飛機眷村完整歷史維度的重要拼圖。</p>
-                        </div>
-                    </div>
-
                 </div>
+
+                <div class="case-card" data-cat="modern">
+                    <div class="case-card-img-wrapper">
+                        <div style="width:100%; height:100%; background: linear-gradient(135deg, #2c3e50, #192a46); opacity: 0.4;"></div>
+                    </div>
+                    <div class="case-card-body">
+                        <div class="case-tag">MILITARY AVIATION</div>
+                        <h4>AIR台南館</h4>
+                        <p>聚焦台南軍事飛行歷史，結合多媒體互動科技與實體飛機模型，打造沉浸式的空軍地景體驗。</p>
+                    </div>
+                </div>
+
+                <div class="case-card" data-cat="modern">
+                    <div class="case-card-img-wrapper">
+                        <div style="width:100%; height:100%; background: linear-gradient(135deg, #c3a473, #3e3e3e); opacity: 0.4;"></div>
+                    </div>
+                    <div class="case-card-body">
+                        <div class="case-tag">LOCAL HISTORY</div>
+                        <h4>水交社歷史館</h4>
+                        <p>作為整座園區的時空門戶，從新石器時代的「出土文物」一路娓娓道來到戰後飛機眷村的興衰起落。</p>
+                    </div>
+                </div>
+
+                <div class="case-card" data-cat="modern">
+                    <div class="case-card-img-wrapper">
+                        <div style="width:100%; height:100%; background: linear-gradient(135deg, #192a46, #444444); opacity: 0.4;"></div>
+                    </div>
+                    <div class="case-card-body">
+                        <div class="case-tag">FAMILY EXPLORE</div>
+                        <h4>飛行親子館</h4>
+                        <p>專為新世代兒童打造的互動探索基地，將艱深的航空力學與眷村童玩趣味結合，寓教於樂。</p>
+                    </div>
+                </div>
+
             </div>
         </section>
 
@@ -587,42 +561,11 @@
             </a>
         </div>
 
-    </div> <footer class="premium-footer">
-        <div class="footer-inner-grid">
-            
-            <div class="footer-logo-block">
-                <h2>水交社</h2>
-                <span>SHUIJIAOSHE</span>
-            </div>
+        <footer>
+            <p>SHUIJIAOSHE GEOGRAPHIC RESEARCH GROUP © 2026</p>
+        </footer>
 
-            <div class="footer-info-col">
-                <h5><i class="fa-regular fa-envelope"></i> E-MAIL</h5>
-                <p>shjsculture@gmail.com</p>
-            </div>
-
-            <div class="footer-info-col">
-                <h5><i class="fa-solid fa-phone"></i> INFO</h5>
-                <p>T. 06-2633467<br>F. 06-2633468</p>
-            </div>
-
-            <div class="footer-info-col">
-                <h5><i class="fa-solid fa-location-dot"></i> ADDRESS</h5>
-                <p>702台南市南區興中街118號</p>
-            </div>
-
-            <div class="footer-social-icons">
-                <a href="#" class="social-link-btn"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#" class="social-link-btn"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="#" class="social-link-btn"><i class="fa-brands fa-line"></i></a>
-            </div>
-
-        </div>
-
-        <div class="footer-copyright-bar">
-            <p>2026© 眷村文化空間地景研究小組. 網頁設計 - SHUIJIAOSHE GROUP</p>
-        </div>
-    </footer>
-
+    </div>
 
     <script>
         window.addEventListener('load', () => {
@@ -640,14 +583,28 @@
         imgElement.alt = "ArcGIS StoryMaps Portal QR Code";
         qrcodeWrapper.appendChild(imgElement);
 
-        function switchSlide(index) {
-            const navItems = document.querySelectorAll('.slider-nav-item');
-            navItems.forEach(item => item.classList.remove('active'));
-            navItems[index].classList.add('active');
+        function filterCases(category) {
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
 
-            const slides = document.querySelectorAll('.slider-slide');
-            slides.forEach(slide => slide.classList.remove('active'));
-            slides[index].classList.add('active');
+            const cards = document.querySelectorAll('.case-card');
+            cards.forEach(card => {
+                card.style.transition = 'all 0.4s ease';
+                if (category === 'all' || card.getAttribute('data-cat') === category) {
+                    card.style.display = 'flex';
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'scale(1)';
+                    }, 50);
+                } else {
+                    card.style.opacity = '0';
+                    card.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        card.style.display = 'none';
+                    }, 400);
+                }
+            });
         }
     </script>
 </body>
