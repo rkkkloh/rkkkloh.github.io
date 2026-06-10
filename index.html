@@ -17,10 +17,8 @@
             --mateas-text: #3e3e3e;     
             --mateas-muted: #8c8c8c;    
             --mateas-border: #e6e4e0;   
-            --footer-bg: #0f1a15;       
-            --footer-text-light: #ffffff;
-            --footer-text-gold: #d5be9b;
-            --footer-text-muted: #99a7a1;
+            --footer-bg: #ece9e2;       
+            --footer-text: #2c2c2c;
         }
 
         * {
@@ -111,6 +109,9 @@
             color: var(--mateas-navy);
             letter-spacing: 5px;
             margin-bottom: 18px;
+        }
+        @media (max-width: 576px) {
+            header h1 { font-size: 2rem; letter-spacing: 3px; }
         }
         .brand-line {
             width: 50px; height: 1px;
@@ -249,6 +250,11 @@
             margin-bottom: 90px;
             z-index: 2;
         }
+        @media (max-width: 768px) {
+            .full-width-slider-section {
+                padding-right: 0;
+            }
+        }
 
         .slider-stage-window {
             position: relative;
@@ -258,6 +264,9 @@
             border-radius: 0 4px 4px 0;
             overflow: hidden;
             box-shadow: 0 35px 80px rgba(0,0,0,0.3);
+        }
+        @media (max-width: 768px) {
+            .slider-stage-window { height: 640px; border-radius: 0; }
         }
 
         .theater-slide-item {
@@ -283,6 +292,10 @@
             top: 60px; left: 60px;
             color: #ffffff; z-index: 10;
         }
+        @media (max-width: 768px) {
+            .slider-left-brand-meta { top: 30px; left: 24px; }
+            .slider-left-brand-meta h4 { font-size: 1.8rem !important; }
+        }
         .slider-left-brand-meta .eng {
             font-family: 'Playfair Display', serif;
             font-size: 0.85rem; letter-spacing: 4px; color: var(--mateas-gold);
@@ -303,6 +316,14 @@
             overflow: hidden; 
             z-index: 5;
         }
+        @media (max-width: 768px) {
+            .slide-floating-description {
+                padding: 24px;
+                height: 60%;
+                align-items: flex-start;
+                top: 140px;
+            }
+        }
         
         .description-slider-track {
             position: relative;
@@ -319,6 +340,9 @@
             transform: translateX(50px); 
             transition: opacity 0.55s cubic-bezier(0.25, 1, 0.5, 1), transform 0.55s cubic-bezier(0.25, 1, 0.5, 1);
         }
+        @media (max-width: 768px) {
+            .description-slide-card { width: 100%; bottom: auto; top: 0; }
+        }
         .description-slide-card.active {
             opacity: 1;
             visibility: visible;
@@ -326,6 +350,9 @@
         }
         .description-slide-card p {
             font-size: 1.05rem; letter-spacing: 1.5px; line-height: 1.8; text-align: justify;
+        }
+        @media (max-width: 576px) {
+            .description-slide-card p { font-size: 0.95rem; }
         }
 
         .control-window-marquee {
@@ -335,6 +362,12 @@
             width: 580px; 
             overflow: hidden; 
             z-index: 10;
+        }
+        @media (max-width: 768px) {
+            .control-window-marquee {
+                bottom: 24px; left: 24px; right: 24px;
+                width: calc(100% - 48px);
+            }
         }
 
         .control-marquee-track {
@@ -425,41 +458,146 @@
 
         .premium-footer {
             background-color: var(--footer-bg);
-            color: var(--footer-text-light);
-            padding: 80px 40px;
-            font-size: 0.9rem;
+            background-image: linear-gradient(rgba(255,255,255,0.4) 1px, transparent 1px);
+            color: var(--footer-text);
+            padding: 60px 40px 40px 40px;
+            font-size: 0.88rem;
             letter-spacing: 1px;
-            border-top: 1px solid rgba(255,255,255,0.03);
+            border-top: 1px solid #dcd9d2;
+            position: relative;
         }
+        
         .footer-inner-grid {
-            max-width: 1100px; margin: 0 auto;
-            display: grid; grid-template-columns: 1fr; gap: 45px; align-items: start;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            align-items: center; 
         }
         @media (min-width: 768px) {
-            .footer-inner-grid { grid-template-columns: 1.2fr 1.2fr 1.2fr 1.4fr 0.5fr; }
+            .footer-inner-grid {
+                grid-template-columns: 1.2fr 1fr 1.2fr; 
+            }
         }
-        .footer-logo-block h2 {
-            font-family: 'Noto Serif TC', serif; font-size: 1.6rem; letter-spacing: 5px; font-weight: 500;
-            color: var(--footer-text-light); border-left: 2px solid var(--mateas-gold); padding-left: 18px; line-height: 1.3;
+        @media (max-width: 768px) {
+            .footer-inner-grid { text-align: center; gap: 30px; }
+            .footer-info-col-left { text-align: center !important; }
+            .footer-menu-col-right { text-align: center !important; justify-content: center; }
         }
-        .footer-logo-block span {
-            font-family: 'Playfair Display', serif; font-size: 0.75rem; color: var(--footer-text-gold); 
-            padding-left: 20px; margin-top: 6px; letter-spacing: 2px; display: block;
+
+        .footer-info-col-left {
+            text-align: left;
+            line-height: 2.2;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            color: #555555;
+            letter-spacing: 1.5px;
         }
-        .footer-info-col h5 {
-            font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; color: var(--footer-text-gold); 
-            margin-bottom: 16px; display: flex; align-items: center; gap: 10px; font-weight: 600;
+        .footer-info-col-left p strong {
+            color: #111111;
+            font-weight: 600;
+            margin-right: 4px;
         }
-        .footer-info-col p { color: var(--footer-text-light); line-height: 1.7; font-size: 0.88rem; }
-        .footer-social-icons { display: flex; flex-direction: row; gap: 22px; justify-content: flex-start; }
-        @media (min-width: 768px) {
-            .footer-social-icons { flex-direction: column; align-items: flex-end; }
+
+        .footer-logo-block-center {
+            text-align: center;
         }
-        .social-link-btn { color: var(--footer-text-gold); font-size: 1.25rem; transition: all 0.3s; text-decoration: none; }
-        .social-link-btn:hover { color: #ffffff; transform: translateY(-2px); }
+        .footer-logo-block-center h2 {
+            font-family: 'Noto Serif TC', serif;
+            font-size: 2.2rem;
+            letter-spacing: 12px;
+            font-weight: 700;
+            color: var(--mateas-navy);
+            line-height: 1.2;
+            margin-bottom: 4px;
+            padding-left: 12px; 
+        }
+        .footer-logo-block-center span {
+            font-family: 'Playfair Display', serif;
+            font-size: 0.72rem;
+            color: var(--mateas-gold);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 15px;
+            padding-left: 4px;
+        }
+        
+        .footer-social-icons-center {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-top: 10px;
+        }
+        .social-link-btn {
+            color: #444444;
+            font-size: 1.1rem;
+            transition: color 0.3s ease, transform 0.3s ease;
+            text-decoration: none;
+        }
+        .social-link-btn:hover {
+            color: var(--mateas-gold);
+            transform: translateY(-2px);
+        }
+
+        .footer-menu-col-right {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px 20px;
+            text-align: right;
+            font-family: 'Noto Serif TC', serif;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+        .footer-menu-col-right a {
+            color: #333333;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .footer-menu-col-right a:hover {
+            color: var(--mateas-gold);
+        }
+
         .footer-copyright-bar {
-            max-width: 1100px; margin: 50px auto 0 auto; padding-top: 24px;
-            border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.78rem; color: var(--footer-text-muted); text-align: left;
+            max-width: 1200px;
+            margin: 50px auto 0 auto;
+            padding-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .footer-text-center-wrapper {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            font-size: 0.76rem;
+            color: #8c8880;
+            line-height: 1.8;
+        }
+
+        .footer-text-center-wrapper::before,
+        .footer-text-center-wrapper::after {
+            content: '';
+            flex-grow: 1;
+            height: 1px;
+            background-color: #dcd9d2; 
+        }
+        .footer-text-center-wrapper::before { margin-right: 25px; }
+        .footer-text-center-wrapper::after { margin-left: 25px; }
+
+        @media (max-width: 768px) {
+            .footer-text-center-wrapper::before,
+            .footer-text-center-wrapper::after { display: none; }
+        }
+
+        .copyright-content-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0; 
         }
 
         @keyframes fadeUpReveal { to { opacity: 1; transform: translateY(0); } }
@@ -507,7 +645,7 @@
         </div>
 
         <p class="paragraph-text">
-            本園區以豐富的眷村巷弄為地質網絡。右上角由<span class="highlight">文學沙龍館、眷村主題館及展演館</span>共同構成核心的日式古蹟宿舍群；右下角則緊鄰飛機廣場，以遊客中心為中心，串聯起 <span class="highlight">AIR台南館、水交社歷史館與飛行親子館</span>等多棟黑瓦展館；左側則鄰近市定古蹟<span class="highlight">「桂子山」</span>高地，共同勾勒出這座飛機眷村當下完整的人文與歷史地景。
+            本園區以豐富的眷村巷弄為地質網絡。右上角由<span class="highlight">文學沙龍館、眷村主題館及展演館</span>共同構成核心的日式古蹟宿舍群；right下角則緊鄰飛機廣場，以遊客中心為中心，串聯起 <span class="highlight">AIR台南館、水交社歷史館與飛行親子館</span>等多棟黑瓦展館；左側則鄰近市定古蹟<span class="highlight">「桂子山」</span>高地，共同勾勒出這座飛機眷村當下完整的人文與歷史地景。
         </p>
     </div>
 
@@ -574,30 +712,38 @@
 
     <footer class="premium-footer">
         <div class="footer-inner-grid">
-            <div class="footer-logo-block">
+            
+            <div class="footer-info-col-left">
+                <p><strong>ADD .</strong> 台南市南區興中街118號</p>
+                <p><strong>TEL .</strong> 06-2633467</p>
+                <p><strong>EMAIL .</strong>  shuijiaoshe.tnc@gmail.com</p>
+            </div>
+            
+            <div class="footer-logo-block-center">
                 <h2>水交社</h2>
-                <span>SHUIJIAOSHE</span>
+                <span>Shuijiaoshe</span>
+                <div class="footer-social-icons-center">
+                    <a href="https://www.facebook.com/Shueijiaoshe/" target="_blank" class="social-link-btn"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/shueijiaoshe?igsh=NmRsZjdpZXVoY2lm" target="_blank" class="social-link-btn"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://youtube.com/@shueijiaosheculturalpark1370?si=-CD8rxQBxVB2zm5A" target="_blank" class="social-link-btn"><i class="fa-brands fa-youtube"></i></a>
+                </div>
             </div>
-            <div class="footer-info-col">
-                <h2><i class="fa-regular fa-envelope"></i> E-MAIL</h2>
-                <p>shjsculture@gmail.com</p>
+            
+            <div class="footer-menu-col-right">
+                <a href="https://shueijiaoshe.tainan.gov.tw/index.php?inter=about" target="_blank">故事</a>
+                <a href="https://shueijiaoshe.tainan.gov.tw/index.php?inter=exhibition" target="_blank">展覽資訊</a>
+                <a href="https://shueijiaoshe.tainan.gov.tw" target="_blank">最新消息</a>
+                <a href="https://www.facebook.com/Shueijiaoshe/" target="_blank">聯絡我們</a>
             </div>
-            <div class="footer-info-col">
-                <h2><i class="fa-solid fa-phone"></i> INFO</h2>
-                <p>T. 06-2633467<br>F. 06-2633468</p>
-            </div>
-            <div class="footer-info-col">
-                <h2><i class="fa-solid fa-location-dot"></i> ADDRESS</h2>
-                <p>702台南市南區興中街118號</p>
-            </div>
-            <div class="footer-social-icons">
-                <a href="#" class="social-link-btn"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#" class="social-link-btn"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="#" class="social-link-btn"><i class="fa-brands fa-line"></i></a>
-            </div>
+            
         </div>
+        
         <div class="footer-copyright-bar">
-            <p>2026© 眷村文化空間地景研究小組. 網頁設計 - SHUIJIAOSHE GROUP</p>
+            <div class="footer-text-center-wrapper">
+                <div class="copyright-content-box">
+                    <p>Copyright © 2026 SHUIJIAOSHE GEOGRAPHIC RESEARCH GROUP All Rights Reserved.Design by rkkkkkk</p>
+                </div>
+            </div>
         </div>
     </footer>
 
@@ -613,6 +759,7 @@
         imgElement.src = qrImageUrl;
         qrcodeWrapper.appendChild(imgElement);
 
+        // 7大焦點原始資料
         const originalCases = [
             { id: 0, num: "01", name: "文學沙龍館" },
             { id: 1, num: "02", name: "眷村主題館" },
@@ -623,6 +770,7 @@
             { id: 6, num: "07", name: "市定古蹟桂子山" }
         ];
 
+        // 隊伍快取緩衝
         let currentQueue = [
             originalCases[0], originalCases[1], originalCases[2], originalCases[3], 
             originalCases[4], originalCases[5], originalCases[6], originalCases[0],
@@ -685,7 +833,7 @@
 
         function handleNavClick(queueIndex) {
             if (isTransitioning || queueIndex === 0) return;
-            clearInterval(autoTimer);
+            clearInterval(autoTimer); 
             advanceQueue(queueIndex);
             startAutoTimer();
         }
