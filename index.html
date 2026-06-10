@@ -125,6 +125,16 @@
             font-weight: 300;
         }
 
+        .ink-banner-img {
+            width: 100%;
+            max-width: 1050px; 
+            height: auto;
+            margin: 35px auto 0 auto;
+            display: block;
+            pointer-events: none;
+            mix-blend-mode: multiply; 
+        }
+
         .hero-theater {
             background-color: #ffffff;
             border: 1px solid var(--mateas-border);
@@ -318,10 +328,7 @@
         }
         @media (max-width: 768px) {
             .slide-floating-description {
-                padding: 24px;
-                height: 60%;
-                align-items: flex-start;
-                top: 140px;
+                padding: 24px; height: 60%; align-items: flex-start; top: 140px;
             }
         }
         
@@ -365,8 +372,7 @@
         }
         @media (max-width: 768px) {
             .control-window-marquee {
-                bottom: 24px; left: 24px; right: 24px;
-                width: calc(100% - 48px);
+                bottom: 24px; left: 24px; right: 24px; width: calc(100% - 48px);
             }
         }
 
@@ -476,9 +482,7 @@
             align-items: center; 
         }
         @media (min-width: 768px) {
-            .footer-inner-grid {
-                grid-template-columns: 1.2fr 1fr 1.2fr; 
-            }
+            .footer-inner-grid { grid-template-columns: 1.2fr 1fr 1.2fr; }
         }
         @media (max-width: 768px) {
             .footer-inner-grid { text-align: center; gap: 30px; }
@@ -623,6 +627,8 @@
             <h1>水交社文化園區</h1>
             <div class="brand-line"></div>
             <div class="subtitle">飛機眷村 ── 歷史與當代空間地景導覽門戶</div>
+            
+            <img src="ink_sketch_banner.png" class="ink-banner-img" alt="水墨裝飾" onerror="this.style.display='none'">
         </header>
 
         <section class="hero-theater">
@@ -725,7 +731,7 @@
                 <div class="footer-social-icons-center">
                     <a href="https://www.facebook.com/Shueijiaoshe/" target="_blank" class="social-link-btn"><i class="fa-brands fa-facebook-f"></i></a>
                     <a href="https://www.instagram.com/shueijiaoshe?igsh=NmRsZjdpZXVoY2lm" target="_blank" class="social-link-btn"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="https://youtube.com/@shueijiaosheculturalpark1370?si=-CD8rxQBxVB2zm5A" target="_blank" class="social-link-btn"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="https://www.youtube.com/@%E6%B0%B4%E4%BA%A4%E7%A4%BE%E6%96%87%E5%8C%96%E5%9C%92%E5%8D%80" target="_blank" class="social-link-btn"><i class="fa-brands fa-youtube"></i></a>
                 </div>
             </div>
             
@@ -759,7 +765,6 @@
         imgElement.src = qrImageUrl;
         qrcodeWrapper.appendChild(imgElement);
 
-        // 7大焦點原始資料
         const originalCases = [
             { id: 0, num: "01", name: "文學沙龍館" },
             { id: 1, num: "02", name: "眷村主題館" },
@@ -770,7 +775,6 @@
             { id: 6, num: "07", name: "市定古蹟桂子山" }
         ];
 
-        // 隊伍快取緩衝
         let currentQueue = [
             originalCases[0], originalCases[1], originalCases[2], originalCases[3], 
             originalCases[4], originalCases[5], originalCases[6], originalCases[0],
